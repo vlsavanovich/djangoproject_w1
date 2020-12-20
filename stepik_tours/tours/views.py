@@ -1,8 +1,8 @@
 from django.shortcuts import render
 # from django.conf import settings
 # from django.views import View
-from stepik_tours.tours import data
 from django.http import HttpResponseNotFound
+from tours import data
 
 
 def main_view(request):
@@ -10,8 +10,11 @@ def main_view(request):
 
 
 def departure_view(request, departure):
-    departures_title = data.departures.get(departure)
-    return render(request, 'departure.html', context=departures_title)
+    departures_title = data.departures[departure]
+    context = {
+        'departure': departures_title
+    }
+    return render(request, 'departure.html', context=context)
 
 
 def tour_view(request, id):
