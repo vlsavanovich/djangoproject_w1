@@ -28,6 +28,11 @@ SECRET_KEY = '2y27vq!_)ka^nskqex(*6m9r#*#f^o_by%(+(jpm4hr(_z98@4'
 DEBUG = False
 
 ALLOWED_HOSTS = ['*']
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "tours/static"),
+]
 
 
 # Application definition
@@ -116,10 +121,3 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/3.0/howto/static-files/
-
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
