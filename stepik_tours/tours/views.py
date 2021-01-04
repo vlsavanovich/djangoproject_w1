@@ -51,7 +51,7 @@ class DepartureView(View):
             }
         }
 
-        return render(request, 'tours/departure.html', context=context)
+        return render(request, 'departure.html', context=context)
 
 
 class TourView(View):
@@ -65,7 +65,7 @@ class TourView(View):
             'tour': tour,
             'departure': data.departures[tour['departure']],
         }
-        return render(request, 'tours/tour.html', context=context)
+        return render(request, 'tour.html', context=context)
 
 
 def custom_handler404(request, exception):
