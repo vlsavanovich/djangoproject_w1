@@ -1,1 +1,2 @@
 web: gunicorn tours.wsgi
+heroku ps:scale web=1
