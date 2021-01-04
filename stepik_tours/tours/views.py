@@ -4,7 +4,7 @@ from django.http import HttpResponseNotFound, Http404, HttpResponseServerError
 from django.shortcuts import render
 from django.views import View
 
-import app_tours.data as data
+import tours.data as data
 
 
 class MainView(View):
