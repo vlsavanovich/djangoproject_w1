@@ -1,5 +1,6 @@
 from django.contrib import admin
 from django.urls import path
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 from app_tours.views import DepartureView
 from app_tours.views import MainView
@@ -14,5 +15,6 @@ urlpatterns = [
     path('tour/<int:id>', TourView.as_view(), name='tour'),
 ]
 
+urlpatterns += staticfiles_urlpatterns()
 handler404 = custom_handler404
 handler500 = custom_handler500
