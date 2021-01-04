@@ -13,7 +13,7 @@ class MainView(View):
         tours = []
         context = {
             'departures': data.departures,
-            'tours': tours,
+            'stepik_tours': tours,
             'title': data.title,
             'subtitle': data.subtitle,
             'description': data.description,
@@ -41,7 +41,7 @@ class DepartureView(View):
         context = {
             'departures': data.departures,
             'departure': data.departures[departure],
-            'tours': tours,
+            'stepik_tours': tours,
             'tours_info': {
                 'count': len(tours),
                 'start_price': min(price),
@@ -51,7 +51,7 @@ class DepartureView(View):
             }
         }
 
-        return render(request, 'tours/departure.html', context=context)
+        return render(request, 'stepik_tours/departure.html', context=context)
 
 
 class TourView(View):
@@ -65,7 +65,7 @@ class TourView(View):
             'tour': tour,
             'departure': data.departures[tour['departure']],
         }
-        return render(request, 'tours/tour.html', context=context)
+        return render(request, 'stepik_tours/tour.html', context=context)
 
 
 def custom_handler404(request, exception):
