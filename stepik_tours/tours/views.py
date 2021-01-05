@@ -27,6 +27,8 @@ class MainView(View):
 
 class DepartureView(View):
     def get(self, request, departure):
+        if departure not in data.departures:
+            raise Http404
         tours = []
         price = []
         nights = []
