@@ -1,1 +1,1 @@
-web: gunicorn --chdir stepik_tours stepik_tours.wsgi
+web: gunicorn --chdir stepik_tours stepik.wsgi
