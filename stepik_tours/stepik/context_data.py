@@ -1,4 +1,4 @@
-import tours.data as data
+import data
 
 
 def add_data(request):

@@ -4,31 +4,29 @@ from django.http import HttpResponseNotFound, Http404, HttpResponseServerError
 from django.shortcuts import render
 from django.views import View
 
-import tours.data as data
+import data
 
 
 class MainView(View):
     def get(self, request):
         seed()
         tours = []
-        context = {
-            'departures': data.departures,
-            'stepik_tours': tours,
-            'title': data.title,
-            'subtitle': data.subtitle,
-            'description': data.description,
-        }
         while len(tours) != 6:
             index = randint(1, len(data.tours))
             if data.tours[index] not in tours:
                 tours.append(data.tours[index])
+        context = {
+            'departures': data.departures,
+            'tours': tours,
+            'title': data.title,
+            'subtitle': data.subtitle,
+            'description': data.description,
+        }
         return render(request, 'main.html', context=context)
 
 
 class DepartureView(View):
     def get(self, request, departure):
-        if departure not in data.departures:
-            raise Http404
         tours = []
         price = []
         nights = []
@@ -41,7 +39,7 @@ class DepartureView(View):
         context = {
             'departures': data.departures,
             'departure': data.departures[departure],
-            'stepik_tours': tours,
+            'tours': tours,
             'tours_info': {
                 'count': len(tours),
                 'start_price': min(price),
